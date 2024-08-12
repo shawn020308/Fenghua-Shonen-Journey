@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;overflow: hidden">
+<head>
+    <!--    我用了html,body的overflow来禁用鼠标中键滚动，其实js也可以监听中键拖动但是右侧的页面滚动条仍然存在。对就是那个overflow:scroll导致了页面有滚动条。-->
+    <!--    孩子们，be aware of overflow-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>风华少年游 | 介绍页</title>
+    <link href="./uploads/favicon.ico" rel="shortcut icon">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <!--    这个我自定义的css载入顺序要在后-->
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <style>
+        .game-header {position: fixed;}
+        .scrollable-div{overflow: scroll;height: 250px;font-family:"Microsoft YaHei",serif;}
+
+        .swiper-container { width: 100%; height: 100%; background-image: url("./uploads/video/media-bg.jpg");background-repeat: no-repeat;background-size: cover;position: relative;}
+        .swiper-slide {display: flex; justify-content: center; align-items: center;width: 100%;height: 100%;position: relative;text-align: center;}
+        /*.swiper-slide video { width: 100vw; height: 100vh; }*/
+        .swiper-slide#intro-home img { height: 100vh; object-fit: cover;}
+        .swiper-slide .btn-solid { position: absolute; right: 250px; bottom: 150px;width: 250px;border-radius: 40px;height: 80px;font-family: var(--intro-ui-font-family), serif;font-size: 30px;}
+        .swiper-slide .btn-solid:hover {background: var(--main-color);}
+        .swiper-pagination {margin: 30px 0 0;--pagination-active-bg: var(--sub-color);--swiper-pagination-color: var(--main-color);--pagination-border-color: #e5e5e5;--pagination-active-border-color: #fff;--swiper-pagination-bullet-size: 20px;--swiper-pagination-bullet-vertical-gap: 12px;}
+        .swiper-pagination .swiper-pagination-bullet {border: none;margin: 0 5px;}
+        .swiper-pagination .swiper-pagination-bullet {border-radius: 20px;border: 1px solid var(--pagination-border-color);font-size: 20px;}
+        .naughty {position: absolute;left: 150px;bottom: 0;color: #555;padding: 10px 15px;background: #000000;border-radius: 15px;font-family: var(--intro-ui-font-family), serif;
+            transition: .3s all ease-in-out;writing-mode: vertical-rl;cursor: default;}
+        .naughty:hover {background: #333333;color: var(--main-color);}
+
+        #intro-map {background-image: url("./uploads/main-bg.jpg");background-size: cover;background-repeat: no-repeat;background-position: center;
+            text-align: left;font-family: var(--intro-ui-font-family), serif;font-size: 20px;}
+        #intro-map .content {position: relative;height: 100vh;}
+        #intro-map .banner-news {position: relative;top: 180px;left: 0;width: 100%;height: fit-content;background: #ffffff;overflow: hidden;}
+        .banner-news .thumbnail::before {position: absolute;top: 0;left: 0;z-index: 1;width: 100%;height: 100%;content: '';pointer-events: none;background: url("./uploads/game-ui/news-border.png") center /cover no-repeat;}
+        #intro-map .swiper-map-pagination {position: absolute;z-index: 99;--swiper-pagination-bullet-horizontal-gap: 5px;--swiper-pagination-color: var(--main-color);
+            --swiper-pagination-bullet-size: 12px;--swiper-pagination-bullet-inactive-color: #ffffff;}
+        #intro-map .swiper-button {position: absolute;top: 50%;transform: translateY(-50%);background: url("./uploads/game-ui/arrow.png") no-repeat center / cover;z-index: 111;width: 18px;height: 35px;}
+        #intro-map .swiper-map-button-next {right: 10px;transform: rotate(180deg) translateY(0);}
+        #intro-map .swiper-map-button-prev {left: 10px;}
+        #intro-map .swiper-button-disabled {opacity: .3;cursor: default;}
+        #intro-map .banner-tabs {position: relative;top: 210px;left: 0;width: 100%;height: 331px;background: transparent;overflow: hidden;
+            --bs-nav-tabs-link-hover-border-color: transparent;--bs-border-color: transparent;--bs-border-width: 0;}
+        #intro-map .nav-link {width: 130px;padding: 12px 0 23px;color: #878787;transition: none;}
+        .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {border: none;}
+        #intro-map .nav-link.active {background: url("uploads/game-ui/chat-box.png") center /cover no-repeat;border: none;color: #ffffff;}
+        #intro-map .tab-content {margin-top: 20px;}
+    </style>
+</head>
+<body style="height: 100%;overflow: hidden">
+<div class="game-header">
+    <div class="container-xl">
+        <a class="thumbnail-wrapper" href="/">
+            <img src="./uploads/header-icon/game-logo.png" width="170" height="51" alt="game-logo"
+                 class="img-fluid game-logo"
+                 draggable="false">
+        </a>
+        <ul class="header-ul">
+            <li><img src="./uploads/header-icon/home-icon.png" alt="home-icon" class="header-icon"><a href="#intro-home"
+                                                                                                      class="header-link">首页</a>
+            </li>
+            <li><img src="./uploads/header-icon/map.png" alt="home-icon" class="header-icon"><a href="#intro-map"
+                                                                                                class="header-link">世界</a>
+            </li>
+            <!--            <li><img src="./uploads/header-icon/npc.png" alt="home-icon" class="header-icon"><a href="#intro-character" class="header-link">介绍</a>-->
+            <!--            </li>-->
+            <!--            <li><img src="./uploads/header-icon/sword.png" alt="home-icon" class="header-icon"><a href="#intro-fight" class="header-link">战斗</a>-->
+            <!--            </li>-->
+        </ul>
+    </div>
+</div>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" id="intro-home">
+            <!--            <video autoplay width="100%" height="100%">-->
+            <!--                <source src="./uploads/video/home-intro.mp4" type="video/mp4" />-->
+            <!--            </video>-->
+            <div class="thumbnail-wrapper">
+                <img height="1080" src="uploads/video/intro-video-cover.jpg" alt="intro video cover" class="img-fluid"/>
+            </div>
+            <a class="btn-solid" href="/gameInit">
+                进入游戏
+            </a>
+            <p class="naughty">别看了快去读技术文档别硬磨项目了</p>
+        </div>
+        <div class="swiper-slide" id="intro-map">
+            <div class="container-xl">
+                <div class="content">
+                    <div class="banner-news">
+                        <div class="swiper-map-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="thumbnail">
+                                        <img src="uploads/intro/news-bg.jpg" width="1400" height="361"
+                                             class="img-fluid" alt="hero image">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="thumbnail">
+                                        <img src="uploads/intro/news-bg.jpg" width="1400" height="361"
+                                             class="img-fluid" alt="hero image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-map-pagination"></div>
+                            <div class="swiper-map-button-next swiper-button"></div>
+                            <div class="swiper-map-button-prev swiper-button"></div>
+                        </div>
+                    </div>
+                    <div class="banner-tabs" >
+                        <ul class="nav nav-tabs" id="introTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="conceptualization-game" data-bs-toggle="tab"
+                                        data-bs-target="#conceptualization-tab-pane" type="button" role="tab"
+                                        aria-controls="conceptualization-tab-pane" aria-selected="true">游戏构思
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="development-progress" data-bs-toggle="tab"
+                                        data-bs-target="#development-tab-pane" type="button" role="tab"
+                                        aria-controls="development-tab-pane" aria-selected="false">开发进度
+                                </button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane  show active" id="conceptualization-tab-pane" role="tabpanel"
+                                 aria-labelledby="conceptualization-game" tabindex="0">
+                                <div class="scrollable-div">
+                                    <p>地理位置定位以及跳转逻辑构建</p>
+                                    <p>canvas地图呈现，关联地理位置</p>
+                                    <p>物品栏交互</p>
+                                    <p>日期推进逻辑</p>
+                                    <p>商人逻辑</p>
+                                    <p>商人逻辑</p>
+                                    <p>根据npc位置生成npc交互框</p>
+                                    <p>对话系统 可做选项</p>
+                                    <p>对话系统</p>
+                                    <p>npc生成器</p>
+                                    <p>游戏初始化设置界面</p>
+                                    <p>存读档（依据是玩家id，每创建一个玩家就生成一个id，id即是存档依据）</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="development-tab-pane" role="tabpanel"
+                                 aria-labelledby="development-progress" tabindex="0">
+                                <p>静心修炼中。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--        <div class="swiper-slide" id="intro-character">-->
+        <!--            <div class="thumbnail-wrapper">-->
+        <!--                <img height="1080" src="uploads/video/intro-video-cover.jpg"  alt="intro video cover" class="img-fluid"/>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--        <div class="swiper-slide" id="intro-fight">-->
+        <!--            <div class="thumbnail-wrapper">-->
+        <!--                <img height="1080" src="uploads/video/intro-video-cover.jpg"  alt="intro video cover" class="img-fluid"/>-->
+        <!--            </div>-->
+        <!--        </div>-->
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+<link rel="stylesheet" href="./css/swiper-bundle.min.css"/>
+<script src="./js/swiper-bundle.min.js"></script>
+<!--不知道为什么intro.js 似乎因为CSP 一直导入不了-->
+<!--<script src="js/intro.js" type="module"></script>-->
+<script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+        const swiper = new Swiper('.swiper-container', {
+            direction: 'vertical',
+            loop: false,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            mousewheel: {
+                invert: false,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            allowTouchMove: false,
+        });
+        const swiperMap = new Swiper('.swiper-map-container', {
+            loop: false,
+            pagination: {
+                el: '.swiper-map-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-map-button-next',
+                prevEl: '.swiper-map-button-prev',
+            },
+        });
+
+    });
+</script>
+</body>
+</html>

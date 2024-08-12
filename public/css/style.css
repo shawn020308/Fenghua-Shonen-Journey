@@ -1,0 +1,84 @@
+:root{
+    --main-color:#d9c394;
+    --sub-color:#d79c1e;
+    --intro-ui-font-family:MaShanZheng;
+    --game-ui-font-family:MaShanZheng;
+    /*--bs-body-font-family:MaShanZheng;*/
+    /*--bs-link-color-rgb: #ffffff;*/
+}
+@font-face {
+    font-family: MaShanZheng;
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+    src: url("../fonts/MaShanZheng-Regular.woff2") format("truetype");
+}
+
+
+a{text-decoration: none;}
+body {background-color: #f8f9fa;}
+
+#game-container {margin-top: 50px;text-align: center;}
+
+/*人物属性面板*/
+.thumbnail-wrapper{position: relative;}
+.thumbnail {position: relative;display: block;overflow: hidden;width: 100%;height: auto;}
+.thumbnail > img {height: auto;position: relative;width: 100%;}
+/*--- hero-card ------*/
+.hero-card .card-body{box-shadow: 0 0 10px 3px #efefef;}
+.hero-card .thumbnail-wrapper{max-width: 100px;margin: 0 0 20px;}
+.hero-card .card-text{margin: 0 0 15px;}
+.hero-card .card-title{margin-bottom: 20px;font-family: var(--game-ui-font-family), serif;font-size: 24px;}
+.card-label {padding: 4px 12px;border-radius: 12px;background: steelblue;color: #f8f8f8;margin-right: 7px;font-size: 14px;}
+
+/*header 导航栏*/
+.game-header{position: relative;left: 0;top: 0;width: 100%;z-index: 100;display: flex;justify-content: center;align-items: center;
+    background: linear-gradient(45deg, rgba(0,0,0,0.8), rgba(0,0,0,0.5));padding: 12px 0;--bs-link-color-rgb:255,255,255,.6;--bs-link-hover-color-rgb: 216, 195, 145;
+    font-size: 20px;font-family: var(--intro-ui-font-family), serif;}
+.game-header .container-xl{display: flex;justify-content: space-between;align-items: center;}
+.game-header {color: #ffffff;}
+.game-header .thumbnail-wrapper{max-width: 208px;}
+.header-ul{list-style: none;margin: 0;padding: 0 ;display: flex;}
+.header-ul li{display: flex;justify-content: center;align-items: center;padding: 0 18px;}
+.header-ul .header-icon{padding: 0 6px 0 0;}
+.header-link{display: block;position: relative;}
+.header-link::after{content: '';width:100%;height: 1px;background: url("../uploads/header-icon/header-ui-line.png") no-repeat center;background-size:cover
+    ;position: absolute;bottom: 0;left: 50%;display: none;margin-left:-16px;}
+.header-link:hover::after{display: block;}
+
+/*game 初始化*/
+.game-container{margin-top: 30px;}
+
+/*ui 相关*/
+.title-ui{font-size: 28px;font-weight: 700;text-align: center;}
+.label-simple{border-radius: 20px;box-shadow: 0 0 10px 3px #efefef;background: #ffffff;padding: 5px 25px;}
+.summary{color: #999;font-size: 14px;margin: 10px 30px;}
+
+
+/*弹窗样式*/
+.popup {display: none;position: fixed;left: 0;top: 0;width: 100%;height: 100%;background: rgba(0, 0, 0, 0.5);justify-content: center;align-items: center;z-index: 1;}
+.popup-content {background: white;padding: 20px;border-radius: 5px;position: relative;width: 1200px;text-align: center;}
+.close-btn {position: absolute;top: 10px;right: 10px;font-size: 20px;cursor: pointer;}
+
+/*按钮特效*/
+.btn-solid{background: linear-gradient(to right, var(--main-color),var(--sub-color));position: relative;width: 154px;height: 50px;line-height: 1.45;
+    color: #fefefe;border-radius: 4px;text-align: center;cursor: pointer;border: none;display: flex;font-size: 18px;justify-content: center;align-items: center;
+}
+
+.btn-around{background: linear-gradient(to right, var(--main-color),var(--sub-color));position: relative;width: 154px;height: 50px;line-height: 1.45;
+    color: #fefefe;border-radius: 4px;text-align: center;cursor: pointer;transition: background-color 100ms ease-in-out;border: none;display: flex;font-size: 18px;justify-content: center;align-items: center;
+}
+.btn-around:hover{background: #efefef;color: #333333;}
+.btn-around .outline{position: absolute;width: 100%;height: 100%;left: 0;top: 0;}
+.btn-around .rect{position: absolute;top: 0;left: 0;width: calc(100% - 2px);height: calc(100% - 2px);transform: translate(1px, 1px);fill: none;stroke: var(--sub-color);transition: all 0.6s cubic-bezier(0, 0.5, 0.35, 1);visibility: hidden;stroke-width: 1;stroke-dasharray: 0, 100;stroke-dashoffset: 100;}
+.btn-around:hover .rect{visibility: visible;stroke-width: 1;stroke-dasharray:100,0;stroke-dashoffset: 0;}
+
+/*r18 */
+.r18-label{background: #fff3cd;color: #333333;padding: 5px;border-radius: 12px;}
+
+/*人物关系*/
+.relationships-wrapper .card-title{margin-bottom: 20px;background: var(--main-color);color: #333333;border-radius: 20px;padding: 8px 12px;font-family: var(--game-ui-font-family),serif;}
+.relationships-wrapper .card-text{margin-bottom: 10px;}
+.relationships-wrapper .approves{color: darkgreen;font-weight: 700;}
+.relationships-wrapper .thoughts-on-you{font-size: 14px;color: #878787;}
+

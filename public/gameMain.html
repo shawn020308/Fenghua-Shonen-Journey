@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>风华少年游</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+<!--    这个我自定义的css载入顺序要在后-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="./uploads/favicon.ico" rel="shortcut icon">
+    <script src="js/bootstrap.min.js"></script>
+    <script defer src="js/gameInit.js"></script>
+    <script src="js/main.js"></script>
+<!--    main.js 写了inPageNavigateTo 导航模块不可以删除！-->
+
+    <style>
+        .popup .tab-content{padding: 20px 0;}
+        .popup .property-title{margin:0 0  18px ;}
+    </style>
+</head>
+<body>
+<div class="game-header">
+    <div class="container-xl">
+        <a class="thumbnail-wrapper" href="/gameInit">
+            <img src="./uploads/header-icon/game-logo.png" width="170" height="51" alt="game-logo" class="img-fluid game-logo"
+                 draggable="false">
+        </a>
+    </div>
+</div>
+<div class="game-container">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-md-3">
+                <!-- 左侧导航 -->
+                <div id="playerAttributes"></div>
+                <ul class="list-group" id="locationList">
+                    <li class="list-group-item"><a href="#" class="move-location" onclick="inPageNavigateTo('myBeds')">自己卧室</a></li>
+                    <li class="list-group-item"><a href="#" class="move-location" onclick="inPageNavigateTo('shiSho')">师父居处</a></li>
+                    <li class="list-group-item"><a href="#" class="move-location">家妹居所</a></li>
+                    <li class="list-group-item"><a href="#">查看地图</a></li>
+                    <li class="list-group-item"><button id="showAttributesBtn" class="list-group-item">显示人物属性</button></li>
+                </ul>
+
+                <div id="popup" class="popup">
+                    <div class="popup-content">
+                        <ul class="nav nav-tabs" id="introTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="property-panel" data-bs-toggle="tab"
+                                        data-bs-target="#property-tab-pane" type="button" role="tab"
+                                        aria-controls="property-tab-pane" aria-selected="true">属性面板</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="interpersonal-relationship" data-bs-toggle="tab"
+                                        data-bs-target="#relationship-tab-pane" type="button" role="tab"
+                                        aria-controls="relationship-tab-pane" aria-selected="false">人际关系
+                                </button>
+                            </li>
+                            <span id="closeBtn" class="close-btn">&times;</span>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane  show active" id="property-tab-pane" role="tabpanel"
+                                 aria-labelledby="property-panel" tabindex="0">
+                                <h2 class="property-title">人物属性</h2>
+                                <p id="attributesPanel">这里展示人物属性，包括性格，处事，外貌，身高等等（没想好）</p>
+                            </div>
+                            <div class="tab-pane " id="relationship-tab-pane" role="tabpanel"
+                                 aria-labelledby="interpersonal-relationship" tabindex="0">
+                                <h2 class="property-title">人物属性</h2>
+                                <p id="relationsPanel">这里展示人物关系，首先是人际关系，然后是好感度。可以保持低好感同时又是恋人。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9" id="main-content">
+                <!-- 右侧内容 -->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
