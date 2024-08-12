@@ -35,18 +35,18 @@ document.addEventListener("DOMContentLoaded", function () {
                             <p class="card-text"><span class="card-label">声望</span> ${data.good_reputation}</p>
                             <p class="card-text"><span class="card-label">城市</span> ${data.location}</p>
                             <p class="card-text site"><span class="card-label">所处位置</span><span id="currentLocation">${data.site}</span></p>
-                            <div id="r18-label-wrapper"></div>
+                            <div id="NSFW-label-wrapper"></div>
                         </div>
                     </div>
                 `;
-                // 检查 R18 模式设置
+                // 检查 NSFW 模式设置
                 fetch(`/api/game_settings/${playerId}`)
                     .then(response => response.json())
                     .then(settings => {
                         if (settings.error) {
-                            document.getElementById('r18-label-wrapper').innerHTML += `<div class="alert alert-danger">${settings.error}</div>`;
-                        } else if (settings.r18_mode_enabled) {
-                            document.getElementById('r18-label-wrapper').innerHTML += '<p class="card-text r18-label">你已成功开启R18调试模式</p>';
+                            document.getElementById('NSFW-label-wrapper').innerHTML += `<div class="alert alert-danger">${settings.error}</div>`;
+                        } else if (settings.NSFW_mode_enabled) {
+                            document.getElementById('NSFW-label-wrapper').innerHTML += '<p class="card-text NSFW-label">你已成功开启NSFW调试模式</p>';
                         }
                     })
                     .catch(error => {
@@ -156,8 +156,10 @@ locationList.addEventListener('click', (event) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({         userId: 1, // 直接发送userId
-                newLocation })
+            body: JSON.stringify({
+                userId: 1, // 直接发送userId
+                newLocation
+            })
         })
             .then(response => {
                 if (!response.ok) {
@@ -166,11 +168,22 @@ locationList.addEventListener('click', (event) => {
                 return response.json();
             })
             .then(data => {
-                console.log('Success:', data,'位置已更新为：' + newLocation);
+                console.log('Success:', data, '位置已更新为：' + newLocation);
                 currentLocationElement.innerText = newLocation;
             })
             .catch(error => {
-                console.error('Error:', error,'更新位置失败，请反馈给开发者');
+                console.error('Error:', error, '更新位置失败，请反馈给开发者');
             });
     }
+});
+
+
+const links = document.querySelectorAll('.move-location');
+// 获取每个地点跳转的class
+links.forEach(link => {
+    link.addEventListener('click', function (event) {
+        event.preventDefault();
+        const target = link.getAttribute('data-target');
+        inPageNavigateTo(target);
+    });
 });

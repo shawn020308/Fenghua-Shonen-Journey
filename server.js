@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/swiper', express.static(path.join(__dirname, 'node_modules/swiper')));
 // app.use(setCSPHeader);
-// 那gameInit页的内联Script真的绝绝子啊
+// 那gameInit页的内联Script好呃呃
 // app.use((req, res, next) => {
 //     const nonce = crypto.randomBytes(16).toString('base64');
 //     res.locals.nonce = nonce;
@@ -112,7 +112,7 @@ app.post('/updateLocation', (req, res) => {
     });
 });
 
-// 孩子们，我被这个坑惨了。express.static这个中间件太老银币了，发现index.html就返回index害得我跳转一直失败。
+// 我被这个坑惨了。express.static这个中间件太阴险了，发现index.html就返回index害得我跳转一直失败。
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'intro.html'));
 });

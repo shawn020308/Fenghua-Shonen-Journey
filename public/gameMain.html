@@ -9,7 +9,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="./uploads/favicon.ico" rel="shortcut icon">
     <script src="js/bootstrap.min.js"></script>
-    <script defer src="js/gameInit.js"></script>
+    <script defer src="js/gameMain.js"></script>
     <script src="js/main.js"></script>
 <!--    main.js 写了inPageNavigateTo 导航模块不可以删除！-->
 
@@ -34,8 +34,8 @@
                 <!-- 左侧导航 -->
                 <div id="playerAttributes"></div>
                 <ul class="list-group" id="locationList">
-                    <li class="list-group-item"><a href="#" class="move-location" onclick="inPageNavigateTo('myBeds')">自己卧室</a></li>
-                    <li class="list-group-item"><a href="#" class="move-location" onclick="inPageNavigateTo('shiSho')">师父居处</a></li>
+                    <li class="list-group-item"><a href="#" class="move-location" data-target="myBeds">自己卧室</a></li>
+                    <li class="list-group-item"><a href="#" class="move-location" data-target="shiSho">师父居处</a></li>
                     <li class="list-group-item"><a href="#" class="move-location">家妹居所</a></li>
                     <li class="list-group-item"><a href="#">查看地图</a></li>
                     <li class="list-group-item"><button id="showAttributesBtn" class="list-group-item">显示人物属性</button></li>
