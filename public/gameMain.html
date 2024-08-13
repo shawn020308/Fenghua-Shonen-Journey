@@ -6,14 +6,22 @@
     <title>风华少年游</title>
     <link href="./css/bootstrap.min.css" rel="stylesheet">
 <!--    这个我自定义的css载入顺序要在后-->
+<!--这里引用了 icon font css-->
+    <link href="css/regular.min.css" rel="stylesheet">
+    <link href="css/fontawesome.min.css" rel="stylesheet">
+    <link href="css/solid.min.css" rel="stylesheet">
+<!--这里引用了 icon font css-->
+<!--    真的搞了好一会儿才弄明白怎么引用 这些字体之间的依赖关系。。。主要是我不想一整个引用all.min.css  yes 即使是min 还是太大了-->
     <link href="css/style.css" rel="stylesheet">
     <link href="./uploads/favicon.ico" rel="shortcut icon">
     <script src="js/bootstrap.min.js"></script>
     <script defer src="js/gameMain.js"></script>
     <script src="js/main.js"></script>
+
 <!--    main.js 写了inPageNavigateTo 导航模块不可以删除！-->
 
     <style>
+        .fa-solid {margin-right: 5px;}
         .popup .tab-content{padding: 20px 0;}
         .popup .property-title{margin:0 0  18px ;}
     </style>
@@ -34,11 +42,12 @@
                 <!-- 左侧导航 -->
                 <div id="playerAttributes"></div>
                 <ul class="list-group" id="locationList">
-                    <li class="list-group-item"><a href="#" class="move-location" data-target="myBeds">自己卧室</a></li>
-                    <li class="list-group-item"><a href="#" class="move-location" data-target="shiSho">师父居处</a></li>
-                    <li class="list-group-item"><a href="#" class="move-location">家妹居所</a></li>
-                    <li class="list-group-item"><a href="#">查看地图</a></li>
-                    <li class="list-group-item"><button id="showAttributesBtn" class="list-group-item">显示人物属性</button></li>
+                    <li class="list-group-item"><a href="#" class="move-location" data-target="myBeds"><i class="fa-solid fa-location-dot"></i>自己卧室</a></li>
+                    <li class="list-group-item"><a href="#" class="move-location" data-target="shiSho"><i class="fa-solid fa-location-dot"></i>师父居处</a></li>
+                    <li class="list-group-item"><a href="#" class="move-location" data-target="imoto"><i class="fa-solid fa-location-dot"></i>家妹居所</a></li>
+                    <li class="list-group-item"><a href="#" ><i class="fa-solid fa-map"></i>查看地图</a></li>
+                    <li class="list-group-item"><a href="#" ><i class="fa-solid fa-sack-dollar"></i>检查行囊</a></li>
+                    <li class="list-group-item"><button id="showAttributesBtn" class="list-group-item"><i class="fa-solid fa-magnifying-glass"></i>显示人物属性</button></li>
                 </ul>
 
                 <div id="popup" class="popup">

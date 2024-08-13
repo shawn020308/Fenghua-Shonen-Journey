@@ -131,6 +131,10 @@ app.get('/shiSho', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'shiSho.html'));
 });
 
+app.get('/imoto', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'imoto.html'));
+});
+
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
 });

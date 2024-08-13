@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                     <div class="card-body">
                                         <h5 class="card-title">${character.name}</h5>
                                         <p class="card-text">关系类型: ${character.relationship_type}</p>
-                                        <p class="card-text">好感度: <span class="approves" style="${character.relationship_type === '师徒' ? 'color: red;' : ''}">${character.approves}</span></p>
+                                        <p class="card-text">好感度:<i class="fa-solid fa-heart"></i> <span class="approves" style="${character.relationship_type === '师徒' ? 'color: red;' : ''}">${character.approves}</span></p>
                                         <p class="card-text thoughts-on-you">${character.thoughts_on_you}</p>
                                     </div>
                                 </div>
@@ -184,6 +184,7 @@ links.forEach(link => {
     link.addEventListener('click', function (event) {
         event.preventDefault();
         const target = link.getAttribute('data-target');
+        // 传入data-target 的参数
         inPageNavigateTo(target);
     });
 });

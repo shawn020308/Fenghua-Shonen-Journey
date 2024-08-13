@@ -13,6 +13,12 @@
     font-style: normal;
     src: url("../fonts/MaShanZheng-Regular.woff2") format("truetype");
 }
+@font-face {
+    font-family: FontAwesome;
+    font-display: swap;
+    font-style: normal;
+    src: url("../fonts/icon-fonts/fa-regular-400.woff2") format("truetype");
+}
 
 
 a{text-decoration: none;}
@@ -52,7 +58,7 @@ body {background-color: #f8f9fa;}
 /*ui 相关*/
 .title-ui{font-size: 28px;font-weight: 700;text-align: center;}
 .label-simple{border-radius: 20px;box-shadow: 0 0 10px 3px #efefef;background: #ffffff;padding: 5px 25px;}
-.summary{color: #999;font-size: 14px;margin: 10px 30px;}
+.summary{color: #999;font-size: 14px;margin: 10px 30px;text-align: center;}
 
 
 /*弹窗样式*/
@@ -81,4 +87,4 @@ body {background-color: #f8f9fa;}
 .relationships-wrapper .card-text{margin-bottom: 10px;}
 .relationships-wrapper .approves{color: darkgreen;font-weight: 700;}
 .relationships-wrapper .thoughts-on-you{font-size: 14px;color: #878787;}
-
+.relationships-wrapper .fa-heart{color: orangered;margin: 0 2px 0 8px;}
