@@ -21,9 +21,13 @@
 <!--    main.js 写了inPageNavigateTo 导航模块不可以删除！-->
 
     <style>
-        .fa-solid {margin-right: 5px;}
         .popup .tab-content{padding: 20px 0;}
         .popup .property-title{margin:0 0  18px ;}
+
+        .list-group { display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; }
+        .list-group-item { flex: 0 0 calc(50% - 10px); margin: 5px; box-sizing: border-box;padding: 5px;}
+        .list-group-item a ,.list-group-item button { display: block; width: 100%; color: inherit; padding: 10px; background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 4px;margin: 0;text-align: left;}
+
     </style>
 </head>
 <body>
@@ -41,15 +45,11 @@
             <div class="col-md-3">
                 <!-- 左侧导航 -->
                 <div id="playerAttributes"></div>
-                <ul class="list-group" id="locationList">
-                    <li class="list-group-item"><a href="#" class="move-location" data-target="myBeds"><i class="fa-solid fa-location-dot"></i>自己卧室</a></li>
-                    <li class="list-group-item"><a href="#" class="move-location" data-target="shiSho"><i class="fa-solid fa-location-dot"></i>师父居处</a></li>
-                    <li class="list-group-item"><a href="#" class="move-location" data-target="imoto"><i class="fa-solid fa-location-dot"></i>家妹居所</a></li>
+                <ul class="list-group" >
                     <li class="list-group-item"><a href="#" ><i class="fa-solid fa-map"></i>查看地图</a></li>
                     <li class="list-group-item"><a href="#" ><i class="fa-solid fa-sack-dollar"></i>检查行囊</a></li>
                     <li class="list-group-item"><button id="showAttributesBtn" class="list-group-item"><i class="fa-solid fa-magnifying-glass"></i>显示人物属性</button></li>
                 </ul>
-
                 <div id="popup" class="popup">
                     <div class="popup-content">
                         <ul class="nav nav-tabs" id="introTab" role="tablist">
@@ -81,8 +81,21 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9" id="main-content">
+            <div class="col-md-7" id="main-content">
                 <!-- 右侧内容 -->
+            </div>
+            <div class="col-md-2">
+                <div class="quick-navigation-wrapper">
+                    <h3 class="quick-title">快速导航</h3>
+                    <ul class="list-group" id="locationList">
+                        <li class="list-group-item"><a href="#" class="move-location" data-target="myBeds"><i
+                                class="fa-solid fa-location-dot"></i>自己卧室</a></li>
+                        <li class="list-group-item"><a href="#" class="move-location" data-target="shiSho"><i
+                                class="fa-solid fa-location-dot"></i>师父居处</a></li>
+                        <li class="list-group-item"><a href="#" class="move-location" data-target="imoto"><i
+                                class="fa-solid fa-location-dot"></i>家妹居所</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

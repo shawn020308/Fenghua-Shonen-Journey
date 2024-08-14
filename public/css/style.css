@@ -13,18 +13,20 @@
     font-style: normal;
     src: url("../fonts/MaShanZheng-Regular.woff2") format("truetype");
 }
-@font-face {
-    font-family: FontAwesome;
-    font-display: swap;
-    font-style: normal;
-    src: url("../fonts/icon-fonts/fa-regular-400.woff2") format("truetype");
-}
 
 
 a{text-decoration: none;}
 body {background-color: #f8f9fa;}
+.fa , .fa-solid {margin-right: 8px;}
+
 
 #game-container {margin-top: 50px;text-align: center;}
+
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1493px;
+    }
+}
 
 /*人物属性面板*/
 .thumbnail-wrapper{position: relative;}
@@ -33,9 +35,15 @@ body {background-color: #f8f9fa;}
 /*--- hero-card ------*/
 .hero-card .card-body{box-shadow: 0 0 10px 3px #efefef;}
 .hero-card .thumbnail-wrapper{max-width: 100px;margin: 0 0 20px;}
-.hero-card .card-text{margin: 0 0 15px;}
+.hero-card .card-text{margin: 0 0 15px;align-items:center;display: flex;}
 .hero-card .card-title{margin-bottom: 20px;font-family: var(--game-ui-font-family), serif;font-size: 24px;}
-.card-label {padding: 4px 12px;border-radius: 12px;background: steelblue;color: #f8f8f8;margin-right: 7px;font-size: 14px;}
+.card-label {padding: 4px 12px;border-radius: 12px;background: steelblue;color: #f8f8f8;margin-right: 7px;font-size: 14px;white-space: nowrap;}
+/*人物健康进度条*/
+.hero-card progress{width: 100%;height: 20px;-webkit-appearance: none;appearance: none;border-radius: 8px;}
+.hero-card progress::-webkit-progress-bar{background-color: #f3f3f3;border-radius: 8px;box-shadow: inset 0 0 5px #ccc;}
+.hero-card progress::-webkit-progress-value{border-radius: 8px;transition: width 0.5s ease;}
+.hero-card progress::-moz-progress-bar{border-radius: 8px;background-color: #4caf50;}
+
 
 /*header 导航栏*/
 .game-header{position: relative;left: 0;top: 0;width: 100%;z-index: 100;display: flex;justify-content: center;align-items: center;
@@ -88,3 +96,7 @@ body {background-color: #f8f9fa;}
 .relationships-wrapper .approves{color: darkgreen;font-weight: 700;}
 .relationships-wrapper .thoughts-on-you{font-size: 14px;color: #878787;}
 .relationships-wrapper .fa-heart{color: orangered;margin: 0 2px 0 8px;}
+
+/*快速导航栏*/
+.quick-navigation-wrapper{background: #ffffff;padding: 20px;border-radius: 10px;box-shadow: 0 0 10px 3px #eee;}
+.quick-title{font-size: 32px;font-family: var(--game-ui-font-family), serif;margin:0 5px 12px;}

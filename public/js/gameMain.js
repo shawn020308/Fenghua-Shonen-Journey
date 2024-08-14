@@ -30,11 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
                             </div>
                             <h5 class="card-title">${data.name}</h5>
                             <p class="card-text"><span class="card-label">年龄</span> ${age}</p>
-                            <p class="card-text"><span class="card-label">健康</span> ${data.health}</p>
+                            <p class="card-text"><span class="card-label"><label for="health">健康</label></span><progress id="health" value="${data.health}" max="100">${data.health}%</progress></p>
+                            <p class="card-text"><span class="card-label"><label for="satiety">饱腹度</label></span><progress id="satiety" value="${data.satiety}" max="100">${data.satiety}</progress></p>
                             <p class="card-text"><span class="card-label">剑术水平</span> ${data.swordsmanship}</p>
                             <p class="card-text"><span class="card-label">声望</span> ${data.good_reputation}</p>
                             <p class="card-text"><span class="card-label">城市</span> ${data.location}</p>
-                            <p class="card-text site"><span class="card-label">所处位置</span><span id="currentLocation">${data.site}</span></p>
+                            <p class="card-text site"><span class="card-label">所处位置</span><i class="fa fa-location"></i><span id="currentLocation">${data.site}</span></p>
                             <div id="NSFW-label-wrapper"></div>
                         </div>
                     </div>
