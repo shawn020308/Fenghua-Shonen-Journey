@@ -19,12 +19,18 @@ a{text-decoration: none;}
 body {background-color: #f8f9fa;}
 .fa , .fa-solid {margin-right: 8px;}
 
+/*
+覆盖bs默认样式
+*/
+.list-group-item + .list-group-item{border-top-width: 1px;}
+
+
 
 #game-container {margin-top: 50px;text-align: center;}
 
 @media (min-width: 1400px) {
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-        max-width: 1493px;
+        max-width: 1600px;
     }
 }
 
@@ -97,6 +103,18 @@ body {background-color: #f8f9fa;}
 .relationships-wrapper .thoughts-on-you{font-size: 14px;color: #878787;}
 .relationships-wrapper .fa-heart{color: orangered;margin: 0 2px 0 8px;}
 
+/*人物下侧互动栏*/
+.list-group { display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; flex-direction: row;justify-content: space-between;}
+.list-group-item { flex: 0 0 calc(50% - 10px);padding: 5px;margin: 5px 0;}
+.list-group-item a ,.list-group-item button { display: block; width: 100%; color: inherit; padding: 10px; background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 4px;margin: 0;text-align: left;}
+
+
 /*快速导航栏*/
 .quick-navigation-wrapper{background: #ffffff;padding: 20px;border-radius: 10px;box-shadow: 0 0 10px 3px #eee;}
+.quick-navigation-wrapper .list-group{flex-direction: column;}
 .quick-title{font-size: 32px;font-family: var(--game-ui-font-family), serif;margin:0 5px 12px;}
+
+/*弹窗样式*/
+.popup .tab-content{padding: 20px 0;}
+.popup .property-title{margin:0 0  18px ;}
+

@@ -112,6 +112,18 @@ app.post('/updateLocation', (req, res) => {
     });
 });
 
+// 调用地图
+app.get('/api/mapCaller', (req, res) => {
+    db.all('SELECT * FROM locations', [], (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+            return;
+        }
+        res.json(rows);
+    });
+});
+
+
 // 我被这个坑惨了。express.static这个中间件太阴险了，发现index.html就返回index害得我跳转一直失败。
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'intro.html'));
