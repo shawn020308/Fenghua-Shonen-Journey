@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>风华少年游</title>
     <link href="./css/bootstrap.min.css" rel="stylesheet">
-<!--    这个我自定义的css载入顺序要在后-->
 <!--这里引用了 icon font css-->
     <link href="css/regular.min.css" rel="stylesheet">
     <link href="css/fontawesome.min.css" rel="stylesheet">
@@ -13,15 +12,17 @@
 <!--这里引用了 icon font css-->
 <!--    真的搞了好一会儿才弄明白怎么引用 这些字体之间的依赖关系。。。主要是我不想一整个引用all.min.css  yes 即使是min 还是太大了-->
     <link href="css/style.css" rel="stylesheet">
+
+    <!--    这个我自定义的css载入顺序要在后 避免覆盖-->
     <link href="./uploads/favicon.ico" rel="shortcut icon">
+<!--    载入一下favicon-->
     <script src="js/bootstrap.min.js"></script>
     <script defer src="js/gameMain.js"></script>
+<!--    这个是我自己写的一些当前界面需要的初始化的js-->
     <script src="js/main.js"></script>
 
 <!--    main.js 写了inPageNavigateTo 导航模块不可以删除！-->
-
     <style>
-
     </style>
 </head>
 <body>
@@ -89,7 +90,7 @@
                                         aria-controls="relationship-tab-pane" aria-selected="false">人际关系
                                 </button>
                             </li>
-                            <span id="closeBtn" class="close-btn">&times;</span>
+                            <li id="closeBtn" class="close-btn">&times;</li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane  show active" id="property-tab-pane" role="tabpanel"
